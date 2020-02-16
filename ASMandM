@@ -1,0 +1,32 @@
+package com.company;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int [] sas;//Создаем массив  с именем sas
+        int a; //Создаем переменну, чтобы она задавала количество чисел в массиве
+        int max=-32767; //указываем минимум-32767 только для типа int
+        Scanner in = new Scanner(System.in);//Считывает вводимые данные от пользователя
+        System.out.println("Введите размер массива(тип int): " );
+        a = in.nextInt();// Записываем количество введенных чисел в "а"
+        sas = new int[a];//Выделяем место под массив sas
+        for (int i = 0; i<a; i++){
+            System.out.print ("Введите число [" + i + "] = ");
+            sas[i] = in.nextInt();//Цикл для записи чисел в заданный массив
+        }
+        //создаем условие,что если размер массива больше 1, то делаем сортировку массива
+        if (sas.length>1) {
+            Arrays.sort(sas, 0, a);//Указываем интервал сортировки
+            System.out.println("Отсортированный массив" + Arrays.toString(sas)); //Выводим отсортированный массив
+        }
+        for (int w = 0; w < sas.length; w++) {
+            if (sas[w] > max)
+                max = sas[w];//Находим максимальное число в массиве
+        }
+        System.out.println("Максимальное число: " + max);
+        System.out.println("Минимальное число: " + sas[0]);
+    }
+    }
