@@ -6,25 +6,28 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int [] sas;//Создаем массив  с именем sas
-        int a; //Создаем переменну, чтобы она задавала количество чисел в массиве
-        int max=-32767; //указываем минимум-32767 только для типа int
-        Scanner in = new Scanner(System.in);//Считывает вводимые данные от пользователя
+        int [] sas;//Creating an array named sas
+        int a; //Creating a variable so that it sets the number of numbers in the array
+        int max=-32767; //specify a minimum value of 32767 for the int type only
+        Scanner in = new Scanner(System.in);//Reads input data from the use
         System.out.println("Введите размер массива(тип int): " );
-        a = in.nextInt();// Записываем количество введенных чисел в "а"
-        sas = new int[a];//Выделяем место под массив sas
+        a = in.nextInt();//Write the number of entered numbers in "a"
+        sas = new int[a];//Allocating space for the "sas" array
+        //Loop for writing numbers to the specified array
         for (int i = 0; i<a; i++){
             System.out.print ("Введите число [" + i + "] = ");
-            sas[i] = in.nextInt();//Цикл для записи чисел в заданный массив
+            sas[i] = in.nextInt();
         }
-        //создаем условие,что если размер массива больше 1, то делаем сортировку массива
-        if (sas.length>1) {
-            Arrays.sort(sas, 0, a);//Указываем интервал сортировки
-            System.out.println("Отсортированный массив" + Arrays.toString(sas)); //Выводим отсортированный массив
-        }
+       //Finding the maximum number in the array
         for (int w = 0; w < sas.length; w++) {
             if (sas[w] > max)
-                max = sas[w];//Находим максимальное число в массиве
+                max = sas[w];
+        }
+        //fix1:first we find the largest number, then we sort it.
+         //Creating a condition that if the array size is greater than 1, we sort the array
+        if (sas.length>1) {
+            Arrays.sort(sas, 0, a);//Specifying the sorting interval
+            System.out.println("Отсортированный массив" + Arrays.toString(sas)); //Output a sorted array
         }
         System.out.println("Максимальное число: " + max);
         System.out.println("Минимальное число: " + sas[0]);
